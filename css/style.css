@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+:root {
+    --yellow: #e49400;
+    --green: #2d8515;
+    --red: #db2a34;
+    --blue: #2477ff;
+    --dark-blue: #17193d;
+    --purple: #474d84;
+    --puple-secondary: #333867;
+    --title-primary-color: rgb(231 226 226);
+}
+
+body * {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--puple-secondary);
+}
