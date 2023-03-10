@@ -31,3 +31,8 @@ body {
     justify-content: center;
     background-color: var(--puple-secondary);
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
