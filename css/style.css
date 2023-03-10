@@ -36,3 +36,36 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--dark-blue);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-header h1 {
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--title-primary-color);
+}
+
+.card-header-buttons {
+    display: flex;
+    justify-content: stretch;
+    gap: 10px;
+    padding: 4px;
+}
