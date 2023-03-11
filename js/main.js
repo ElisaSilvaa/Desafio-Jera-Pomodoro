@@ -32,3 +32,43 @@
             setInfoCircularProgressBar();
         }, 1000);
     }
+
+    const stopTimer = () => clearInterval(progressInterval);
+
+    const resetTimer = () => {
+        clearInterval(progressInterval);
+
+        timerValue = (pomodoroType === TIMER_TYPE_POMODORO) ?
+            pomodorotimerInSeconds :
+            shortBreakTimerInSeconds;
+
+        multiplierFactor = 360 / timerValue;
+
+        setInfoCircularProgressBar();
+    }
+
+    function setInfoCircularProgressBar() {
+
+        if (timerValue === 0) {
+            stopTimer();
+            audio.play();
+        }
+
+        circularProgressBarNumber.textContent = `${formatNumberInStringMinute(timerValue)}`;
+        circularProgressbar.style.backgroud = `conic-gradient(var(--blue) ${timerValue * multiplierFactor}deg, var(--purple) 0deg)`;
+
+    }
+
+    const setPomodoroType = (type) => {
+        pomodoroType = type;
+
+        if (type === TIMER_TYPE_POMODORO) {
+            buttonTypeShortBreak.classList.remove("active");
+            buttonTypePomodoro.classList.add("active");
+        } else {
+            buttonTypePomodoro.classList.remove("active");
+            buttonTypeShortBreak.classList.add("active");
+        }
+
+        resetTimer();
+    }
