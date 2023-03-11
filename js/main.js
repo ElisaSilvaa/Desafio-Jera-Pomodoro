@@ -5,18 +5,20 @@
 
     const audio = new Audio('BIP.mp3');
 
-    const pomodorotimerInSeconds = 1500;
+    const pomodoroTimerInSeconds = 1500;
     const shortBreakTimerInSeconds = 100;
     const TIMER_TYPE_POMODORO = 'POMODORO';
     const TIMER_TYPE_SHORT_BREAK = 'SHORTBREAK';
 
+
     let progressInterval;
     let pomodoroType = TIMER_TYPE_POMODORO;
-    let timerValue = pomodorotimerInSeconds;
+    let timerValue = pomodoroTimerInSeconds;
     let multiplierFactor = 360 / timerValue;
 
 
     function formatNumberInStringMinute(number) {
+
         const minutes = Math.trunc(number / 60)
             .toString()
             .padStart(2, '0');
@@ -39,12 +41,13 @@
         clearInterval(progressInterval);
 
         timerValue = (pomodoroType === TIMER_TYPE_POMODORO) ?
-            pomodorotimerInSeconds :
+            pomodoroTimerInSeconds :
             shortBreakTimerInSeconds;
 
         multiplierFactor = 360 / timerValue;
 
         setInfoCircularProgressBar();
+
     }
 
     function setInfoCircularProgressBar() {
@@ -55,13 +58,14 @@
         }
 
         circularProgressBarNumber.textContent = `${formatNumberInStringMinute(timerValue)}`;
-        circularProgressbar.style.backgroud = `conic-gradient(var(--blue) ${timerValue * multiplierFactor}deg, var(--purple) 0deg)`;
+        circularProgressbar.style.background = `conic-gradient(var(--blue) ${timerValue * multiplierFactor}deg, var(--purple) 0deg)`;
 
     }
 
+
+
     const setPomodoroType = (type) => {
         pomodoroType = type;
-
         if (type === TIMER_TYPE_POMODORO) {
             buttonTypeShortBreak.classList.remove("active");
             buttonTypePomodoro.classList.add("active");
@@ -71,4 +75,5 @@
         }
 
         resetTimer();
+
     }
